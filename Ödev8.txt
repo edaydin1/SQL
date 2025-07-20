@@ -1,0 +1,39 @@
+CREATE TABLE employee (
+    id INTEGER PRIMARY KEY,
+    name VARCHAR(50),
+    birthday DATE,
+    email VARCHAR(100)
+);INSERT INTO employee (id, name, birthday, email) VALUES
+(1, 'John Doe', '1980-05-15', 'john.doe@example.com'),
+(2, 'Alice Smith', '1990-08-22', 'alice.smith@example.com'),
+(3, 'Bob Johnson', '1985-12-30', 'bob.johnson@example.com');
+-- (Devamında toplam 50 satır olacak şekilde eklenir)
+
+-- a) id = 1 olan satırın email adresini güncelle
+UPDATE employee SET email = 'newemail1@example.com' WHERE id = 1;
+
+-- b) name 'Alice Smith' olan satırın birthday'sini güncelle
+UPDATE employee SET birthday = '1992-01-01' WHERE name = 'Alice Smith';
+
+-- c) birthday '1985-12-30' olan satırın name'ini güncelle
+UPDATE employee SET name = 'Robert Johnson' WHERE birthday = '1985-12-30';
+
+-- d) email 'john.doe@example.com' olan satırın name ve birthday'sini güncelle
+UPDATE employee SET name = 'Jonathan Doe', birthday = '1981-06-20' WHERE email = 'john.doe@example.com';
+
+-- e) id = 2 olan satırın name ve email adresini güncelle
+UPDATE employee SET name = 'Alicia Smith', email = 'alicia.smith@example.com' WHERE id = 2;
+-- a) id = 1 olan satırı sil
+DELETE FROM employee WHERE id = 1;
+
+-- b) name 'Bob Johnson' olan satırı sil
+DELETE FROM employee WHERE name = 'Bob Johnson';
+
+-- c) birthday '1992-01-01' olan satırı sil
+DELETE FROM employee WHERE birthday = '1992-01-01';
+
+-- d) email 'alicia.smith@example.com' olan satırı sil
+DELETE FROM employee WHERE email = 'alicia.smith@example.com';
+
+-- e) id'si 3, 4 ve 5 olan satırları sil
+DELETE FROM employee WHERE id IN (3, 4, 5);
